@@ -71,8 +71,9 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select id from member where id= ?";
 		
+		String sql = "select id from member where id= ?";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, inputId);

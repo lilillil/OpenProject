@@ -65,7 +65,7 @@ public class MemberRegService {
 		
 		
 			System.out.println("입력 전 midx : " + member.getMidx());
-		
+			System.out.println(member);
 			result = memberDao.insertMember(member);
 			
 			System.out.println("입력 후 midx : " + member.getMidx());

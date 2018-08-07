@@ -31,10 +31,15 @@ public class MemberListService {
 		
 		
 		if(memberTotalCount > 0) {
-			firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE + 1;
-			endRow = firstRow +  MESSAGE_COUNT_PER_PAGE - 1;
-			memberList = memberDao.selectMemberList(firstRow, endRow);
-					
+			//oracle
+//			firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE + 1;
+//			endRow = firstRow +  MESSAGE_COUNT_PER_PAGE - 1;
+//			memberList = memberDao.selectMemberList(firstRow, endRow);
+			
+			//AWS Mysql
+			firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
+			memberList = memberDao.selectMemberList(firstRow, MESSAGE_COUNT_PER_PAGE);
+			
 					
 		}else {
 			pageNumber = 0;
