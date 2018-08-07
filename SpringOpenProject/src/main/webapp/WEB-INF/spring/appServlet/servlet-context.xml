@@ -43,17 +43,33 @@
 	<context:component-scan base-package="com.bitcamp.op" />
 	
 	<!-- 데이터 베이스 연동을 위한 DataSource등록 : jdbc Template에 주입, Mybatis 설정-->
-	<beans:bean
+<!-- 	<beans:bean
 		id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<!-- 드라이버 지정 -->
+		드라이버 지정
 		<beans:property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
-		<!-- 오라클의경로 -->	
+		오라클의경로	
 		<beans:property name="jdbcUrl"
 			value="jdbc:oracle:thin:@localhost:1522:orcl"/>
 		<beans:property name="user" value="scott"/>
 		<beans:property name="password" value="tiger"/>		
+	</beans:bean> -->
+	
+	
+	<!-- AWS Mysql  -->
+	<beans:bean
+		id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 드라이버 지정 -->
+		<beans:property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<!-- AWS Mysql 경로	-->	
+		<beans:property name="jdbcUrl"
+			value="jdbc:mysql://opendbmysql.crsv1mozx8ol.ap-northeast-2.rds.amazonaws.com:3306/openproject"/>
+		<beans:property name="user" value="admin"/>
+		<beans:property name="password" value="admin1234"/>		
 	</beans:bean>
+	
+	
 	
 	<!-- mybatis 연동 설정 -->
 	<beans:bean id="sqlSessionFactory"

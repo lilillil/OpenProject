@@ -31,7 +31,8 @@ public class DBCPInit extends HttpServlet {
 		private void loadJDBCDriver() {
 		try {
 			// 사용하고자하는 데이터베이스 드라이버 로딩
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,9 +42,14 @@ public class DBCPInit extends HttpServlet {
 	// POOL 드라이버 로드, 설정, 풀 등록
 		private void initConnectionPool() {
 		try {
-			String jdbcUrl = "jdbc:oracle:thin:@localhost:1522:orcl";
-			String dbUser = "SCOTT";
-			String dbPass = "tiger";
+			//AWS RDB
+			String jdbcUrl = "jdbc:mysql://opendbmysql.crsv1mozx8ol.ap-northeast-2.rds.amazonaws.com:3306/openproject";
+			String dbUser = "admin";
+			String dbPass = "admin1234";
+			
+//			String jdbcUrl = "jdbc:oracle:thin:@localhost:1522:orcl";
+//			String dbUser = "SCOTT";
+//			String dbPass = "tiger";
 //			String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
 //			String dbUser = "sjpark";
 //			String dbPass = "1234";

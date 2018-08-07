@@ -10,7 +10,10 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="com.bitcamp.op.member.model.Member">
-		insert into member (midx, id,  pw, photo, name ) values (member_seq.nextval, #{id}, #{pw}, #{photo}, #{name})
+		<!-- oracle -->
+		<!-- insert into member (midx, id,  pw, photo, name ) values (member_seq.nextval, #{id}, #{pw}, #{photo}, #{name}) -->
+		<!-- AWS RDB mysql -->
+		insert into member (id,  pw, photo, name ) values (#{id}, #{pw}, #{photo}, #{name})
 	</insert>
 
 </mapper>

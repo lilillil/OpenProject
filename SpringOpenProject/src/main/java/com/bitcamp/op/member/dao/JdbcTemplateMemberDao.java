@@ -104,9 +104,11 @@ public class JdbcTemplateMemberDao {
 	//멤버 리스트
 	public List<Member> selectMemberList(int firstRow, int endRow) {
 		List<Member> resultObj = null;
-	
-		String sql = "select midx, id, pw, photo, name, regdate from (select ROW_NUMBER() OVER (order by midx) rn, member.* from member order by midx ) where rn between ? and ?";
+		//oracle
+		//String sql = "select midx, id, pw, photo, name, regdate from (select ROW_NUMBER() OVER (order by midx) rn, member.* from member order by midx ) where rn between ? and ?";
 		
+		//AWS Mysql
+		String sql = "select midx, id, pw, photo, name, regdate from member limit ?,?";
 		
 		System.out.println(sql);
 		System.out.println(firstRow);
