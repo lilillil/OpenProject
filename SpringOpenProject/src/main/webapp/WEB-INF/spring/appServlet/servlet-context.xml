@@ -139,7 +139,7 @@
 				<beans:bean class="com.bitcamp.op.member.interceptor.AuthCheckInterceptor" />
 		</interceptor>
 	</interceptors>
-	
+	  
 	
 	
 	
