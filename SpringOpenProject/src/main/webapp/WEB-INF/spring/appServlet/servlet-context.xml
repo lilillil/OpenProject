@@ -63,7 +63,7 @@
 		<!-- 드라이버 지정 -->
 		<beans:property name="driverClass" value="com.mysql.jdbc.Driver"/>
 		<!-- AWS Mysql 경로	-->	
-		<beans:property name="jdbcUrl" 
+		<beans:property name="jdbcUrl"
 			value="jdbc:mysql://opendbmysql.crsv1mozx8ol.ap-northeast-2.rds.amazonaws.com:3306/openproject"/>
 		<beans:property name="user" value="admin"/>
 		<beans:property name="password" value="admin1234"/>		
