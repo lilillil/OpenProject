@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bitcamp.op.guestbook.dao.GuestBookDaoInterface">
+
+	<insert id="writeGuestBook" parameterType="com.bitcamp.op.guestbook.model.GuestBook">
+		<!-- AWS RDB mysql -->
+		insert into guestbook (guestname,  password, message) values (#{guestname}, #{password}, #{message})
+	</insert>
+	
+	<select id="msgTotalCnt" resultType="int">
+		select count(*) from guestbook
+	</select>
+	
+	<!-- 해당 클래스를 resultType로 지정해주면 그 클래스를 제네릭으로 지니는 리스트가 리턴 된다 https://okky.kr/article/281875  -->
+	<select id="getGuestBookList" resultType="com.bitcamp.op.guestbook.model.GuestBook">
+		select * from guestbook
+	</select>
+
+</mapper>

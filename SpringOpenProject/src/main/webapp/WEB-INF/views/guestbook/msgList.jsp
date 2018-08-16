@@ -10,7 +10,27 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/commons/header.jsp"/>
-msg list
+
+<c:choose>
+	<c:when test="${ guestbook eq null }"> no messages </c:when>
+	<c:otherwise>
+		<c:forEach items="${guestbook}" var="guestbook" varStatus="status">
+			<table border="1">
+				<tr>
+					<td>${guestbook.message_id }</td>
+					<td>${ guestbook.guestname }</td>
+					<td>${ guestbook.regdate }</td>
+					<td>[Delete]</td>
+				</tr>
+				<tr>
+					<td><img src ="" width="100px" alt="no_img"></td>
+					<td>${ guestbook.message }</td>
+				</tr>			
+			</table>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+<br>
 <a href="<c:url value="/guestbook/msgWrite"/>">[write]</a>
 
 </body>

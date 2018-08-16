@@ -20,7 +20,7 @@
 				<tr>
 					<td> Writer : </td>
 					<td> 
-						<input type="text" name="guestName" value="${loginInfo.id}" disabled="disabled">
+						<input type="text" name="guestname" value="${loginInfo.id}" readonly>
 						<input type="hidden" name="password" value="${loginInfo.pw}">
 					</td>
 				</tr>
@@ -29,7 +29,7 @@
 				<tr>
 					<td> Writer : </td>
 					<td>
-						<input type="text" name="guestName">
+						<input type="text" name="guestname">
 					</td>
 				</tr>
 				<tr>
@@ -69,7 +69,7 @@
 </form>
 
 
-
+<c:if test="${msg ne null }"><span style="color:red;">${msg}</span></c:if><br>
 
 
 
