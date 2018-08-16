@@ -20,6 +20,8 @@ public class GuestBookListService {
 
 	public List<GuestBook> getGuestBookList(int pagenum) {
 		
+		guestBookDao = sqlSessionTemplate.getMapper(GuestBookDaoInterface.class);
+		
 		//게시물의 리스트
 		List<GuestBook> guestbookList = null;
 		
