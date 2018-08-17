@@ -29,10 +29,10 @@
 	<td>
 		<c:choose>
 			<c:when test="${member.photo eq null}">
-				a<img src="<c:url value="/uploadFile/memberPhoto/no_avatar.jpg" />" width="100px">
+				<img src="<c:url value="/uploadFile/memberPhoto/no_avatar.jpg" />" width="100px" height="100px">
 			</c:when>
 			<c:otherwise>
-				b<img src="<c:url value="/uploadFile/memberPhoto/${member.photo}" />" width="100px">	
+				<img src="<c:url value="/uploadFile/memberPhoto/${member.photo}" />" width="100px" height="100px">	
 			</c:otherwise>
 		</c:choose>
 	</td>
@@ -42,16 +42,16 @@
 </c:forEach>
 </table>
 
-	<c:if test="${startPage!=1 && startPage%5==1}">
-		<a href="<c:url value="/member/memberList"/>?page=${startPage-1}">◀</a>
+	<c:if test="${paging.startPage!=1 && paging.startPage%5==1}">
+		<a href="<c:url value="/member/memberList"/>?page=${paging.startPage-1}">◀</a>
 	</c:if>
-	<c:forEach var="page" begin="${startPage}" end="${endPage}">
+	<c:forEach var="page" begin="${paging.startPage}" end="${paging.endPage}">
 		<a href="<c:url value="/member/memberList"/>?page=${page}">[${page}]</a>
 	</c:forEach>
-	<c:if test="${endPage!=pageCnt && endPage%5 ==0 }">
-		<a href="<c:url value="/member/memberList"/>?page=${endPage+1}">▶</a>
+	<c:if test="${paging.endPage!=paging.totalPageCnt && paging.endPage%5 ==0 }">
+		<a href="<c:url value="/member/memberList"/>?page=${paging.endPage+1}">▶</a>
 	</c:if>
-
+	
 
 
 </body>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.model.Member;
+import com.bitcamp.op.paging.model.Paging;
 
 public class MemberListService {
 
@@ -51,22 +52,14 @@ public class MemberListService {
 		
 	}
 	
-	public int pageCount() {
+	
+	public Paging pageCount(int pagenum) {
 		
-		int pageTotalCount = 0;
-		
-		if (memberTotalCount == 0) {
-			pageTotalCount = 0;
-		} else {
-			pageTotalCount = memberTotalCount / MESSAGE_COUNT_PER_PAGE;
-			if (memberTotalCount % MESSAGE_COUNT_PER_PAGE > 0) {
-				pageTotalCount++;
-			}
-
-		}
+		//현재 페이지, 총 레코드 수, 한 페이지당 보여줄 레코드 수
+		Paging paing = new Paging(pagenum, memberTotalCount, MESSAGE_COUNT_PER_PAGE );
 		
 		
-		return pageTotalCount;
+		return paing;
 	}
 	
 }

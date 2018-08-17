@@ -12,10 +12,8 @@ public interface GuestBookDaoInterface {
 
 	public int writeGuestBook(GuestBook guestbook);
 	
-	public int msgTotalCnt();
+	public int guestBookTotalCnt();
 
-	public List<GuestBook> selectList(int firstRow, int endRow);
-
-	public List<GuestBook> getGuestBookList();
+	public List<GuestBook> getGuestBookList(int firstRow, int msgCntPerPage);
 	
 }

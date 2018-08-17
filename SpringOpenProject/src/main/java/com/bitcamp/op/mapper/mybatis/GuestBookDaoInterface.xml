@@ -10,13 +10,13 @@
 		insert into guestbook (guestname,  password, message) values (#{guestname}, #{password}, #{message})
 	</insert>
 	
-	<select id="msgTotalCnt" resultType="int">
+	<select id="guestBookTotalCnt" resultType="int">
 		select count(*) from guestbook
 	</select>
 	
 	<!-- 해당 클래스를 resultType로 지정해주면 그 클래스를 제네릭으로 지니는 리스트가 리턴 된다 https://okky.kr/article/281875  -->
-	<select id="getGuestBookList" resultType="com.bitcamp.op.guestbook.model.GuestBook">
-		select * from guestbook
+	<select id="getGuestBookList" resultType="com.bitcamp.op.guestbook.model.GuestBook" parameterType="int">
+		select * from guestbook limit #{arg0},#{arg1}
 	</select>
 
 </mapper>

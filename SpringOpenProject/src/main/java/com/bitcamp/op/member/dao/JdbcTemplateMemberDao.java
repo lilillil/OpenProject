@@ -109,11 +109,7 @@ public class JdbcTemplateMemberDao {
 		
 		//AWS Mysql
 		String sql = "select midx, id, pw, photo, name, regdate from member limit ?,?";
-		
-		System.out.println(sql);
-		System.out.println(firstRow);
-		System.out.println(endRow);
-		
+				
 		resultObj = jdbcTemplate.query(sql, new MemberRowMapper(), firstRow, endRow);
 		
 		

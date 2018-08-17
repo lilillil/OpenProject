@@ -10,6 +10,13 @@
 <title>Insert title here</title>
 <link href="<c:url value="/css/default.css"/>" rel="stylesheet">
 
+<style>
+td#photo {
+	text-align: center;
+}
+
+</style>
+
 </head>
 <body>
 
@@ -18,9 +25,21 @@
 
 <table border="1" >
 	<tr>
-		<td colspan="2">
+		<%-- <td colspan="2">
 			<img src="<c:url value="/uploadFile/memberPhoto/${loginInfo.photo}" />" width="200px">
+		</td> --%>
+		
+		<td colspan="2" id="photo">
+		<c:choose>
+			<c:when test="${loginInfo.photo eq null}">
+				<img src="<c:url value="/uploadFile/memberPhoto/no_avatar.jpg" />" width="200px">
+			</c:when>
+			<c:otherwise>
+				<img src="<c:url value="/uploadFile/memberPhoto/${loginInfo.photo}" />" width="200px">	
+			</c:otherwise>
+		</c:choose>
 		</td>
+		
 	</tr>
 	<tr>
 		<td>ID </td>
